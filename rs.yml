@@ -1,21 +1,21 @@
-apiVersion: apps/v1
-kind: replicaSet
+piVersion: apps/v1
+kind: ReplicaSet
 metadata:
-   name: myrc
-   lables:
-     app: javaapp
+ name: myrs
+ labels:
+  type: javaapp
 spec:
-  replicas: 3
-  selector:
-    matchLabels:
-	   type: webserver
-  template:
-     metadata:
-	    name: mypod
-		lables:
-		   app: webserver
-		   env: QA
-	spec:
-	   containers:
-	     - image: mynginx
-		   name: myc2
+ replicas: 3
+ selector:
+  matchLabels:
+   type: webserver
+ template:
+  metadata:
+   name: mypod
+   labels:
+    type: webserver
+      env:QA
+  spec:
+   containers:
+    - name: mynginx
+      image: myc2
